@@ -14,3 +14,7 @@ After I tidy up this game, I hope to take some stabs at an FPS and an RPG.
 All assets are free from the unity store, or from the unity standard assets.
 Sounds effect were found on soundbible.com, with credit going to Snottyboy for the tank sounds 
 and Mike Koenig for the explosion sound.
+
+Current Issues:
+1) Even with continuous collsion detection, bullets will still sometimes travel through the terrain.
+2) The terrain was built in unity terrain editor, which has caused some imperfections in the mesh.
