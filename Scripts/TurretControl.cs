@@ -8,7 +8,8 @@ public class TurretControl : MonoBehaviour {
 	
 	}
 	
-	// Update is called once per frame
+	// This rotates the turret around the Y axis based on the mouse
+	//Biggest issue is keeping the mouse/crosshair aligned with the turret
 	void Update () {
 	if (Input.mousePosition.x <= Screen.width && Input.mousePosition.x >=0)
 		{

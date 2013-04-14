@@ -8,9 +8,9 @@ public class DestroyOnImpact : MonoBehaviour {
 	
 	}
 	
-	// Update is called once per frame
+	// This destroy the bullet on impact, or after 15 seconds
 	void Update () {
-		Destroy(gameObject, 15);
+		Destroy(gameObject, 10);
 	}
 	
 	void OnCollisionEnter(Collision collision)

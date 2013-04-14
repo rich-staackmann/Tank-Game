@@ -8,66 +8,35 @@ public class TankControl : MonoBehaviour {
 	public float slopeLimit = 90.0F;
 	public Texture2D crosshair;
 	float rotHoriz;
-	float rotLeft;
-	float rotRight;
 	float forward;
-	float back;
 	Vector3 velocity;
 	// Use this for initialization
 	void Start () {
-		
+		Screen.showCursor = false;
 	}
 	
-	// Update is called once per frame
+	// If the terrain isn't too steep the this function checks the horizontal axis and rotates around the Y
+	// Then it gets the vertical axis and translates in Z
+	//It has an arcade feel, but that is what i was going for
 	void Update () {
  	if(!tooSteep())
 		{
-			/*if (Input.GetKey(KeyCode.W))
-			{
-            		//transform.Translate(new Vector3(0,0,speed*Time.deltaTime));
-				newPos = transform.position;
-				newPos.z += speed * Time.deltaTime;
-				transform.position = newPos;
-			}
-    		if (Input.GetKey(KeyCode.S))
-			{
-            		//transform.Translate(new Vector3(0,0,-speed*Time.deltaTime));
-				newPos = transform.position;
-				newPos.z += -speed * Time.deltaTime;
-				transform.position = newPos;
-			}
-			if (Input.GetKey(KeyCode.A))
-			{
-            		transform.Rotate(new Vector3(0,-45*Time.deltaTime,0));
-				
-			}
-		
-    		if (Input.GetKey(KeyCode.D))
-			{
-            		transform.Rotate(new Vector3(0,45*Time.deltaTime,0));
-				
-			}
-		} 
-		else //TODO try to smooth this out...maybe calculate a normal and apply force along that
-		{
-			transform.Translate(new Vector3(0,0,-speed)*Time.deltaTime);
-		} */
 			rotHoriz = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
 			transform.Rotate(0, rotHoriz,0);
 			
 			forward = Input.GetAxis("Vertical") * speed;
-			//Debug.Log(forward);
 			forward *= Time.deltaTime;
 			velocity = new Vector3(0,0, forward);
-			//velocity = transform.rotation * velocity;
+			
 			transform.Translate(velocity);
 		}
 	}
+	//tooSteep is a basic check to keep the tank from climbing up hills, based on tank's x rotation
 	bool tooSteep()
 	{
 		return (transform.rotation.eulerAngles.x >= slopeLimit);
 	}
-	
+	//this code draws the crosshair based on the mouse position
 	void OnGUI()
 	{
 		GUI.DrawTexture(new Rect(Input.mousePosition.x - 64/2, Screen.height - Input.mousePosition.y - 64/2, 64, 64),crosshair);
