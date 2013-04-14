@@ -1,5 +1,5 @@
-Tank-Game
-=========
+Tank-Game (complete)
+====================
 
 First try at a full game in Unity3D!
 
@@ -18,3 +18,9 @@ and Mike Koenig for the explosion sound.
 Current Issues:
 1) Even with continuous collsion detection, bullets will still sometimes travel through the terrain.
 2) The terrain was built in unity terrain editor, which has caused some imperfections in the mesh.
+
+
+Final:
+I added some rudimentary path following AI for the enemy tank to follow. I have a spawn system in place, but it just
+spawns one tank. This project was a nice learning experience but I want to commit my time to other projects.
+I put the latest x64 build in the .rar file but this game was really just a prototype for further adventures.
